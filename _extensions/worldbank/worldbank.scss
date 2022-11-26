@@ -1,0 +1,184 @@
+/*-- scss:defaults --*/
+
+/* Brand colors:
+    - Solid Blue: #002244
+    - Bright Blue: #009FDA
+    - Black: #000000
+    - White: #FFFFFF
+  Secondary colors:
+    - Warm/Saturated:
+      - #F05023
+      - #FDB714
+      - #2EB1C2D
+      - #F78D28
+    - Cool/Saturated:
+      - #009CA7
+      - #00AB51
+      - #872B90
+      - #00A996
+    - Warm/Muted:
+      - #98252B
+      - #E16A2D
+      - #B88C1D
+    - Cool/Muted
+      - #614776
+      - #006068
+      - #006450
+*/
+
+// importing fonts Arimo and Lato
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap');
+
+// fonts
+$font-family-sans-serif: 'Lato', sans-serif !default;
+
+// headings
+$presentation-heading-font: 'Lato', sans-serif  !default;
+$presentation-heading-color: #002244 !default;
+$h1-font-size: 1.6em !default;
+$h2-font-size: 1.3em !default;
+$h3-font-size: 1.15em !default;
+
+//code
+$code-color: #009FDA !default;
+$font-family-monospace: 'Inconsolata', monospace  !default;
+
+// general  
+$body-bg: #FFFFFF;
+$Almost-White: #f8f8f8;
+$body-color: #000000;
+$link-color: #009FDA;
+$solid-blue: #002244;
+$presentation-font-size-root: 35px;
+
+/*-- scss:rules --*/
+.reveal pre code {
+  background-color: #f8f8f8;
+  font-size: 1em;
+  padding: 0.5em;
+  line-height: 1.2em;
+}
+
+#title-slide {
+  text-align: left;
+  
+  .title {
+    font-size: 1.5em;
+    border-bottom: 5px solid $link-color;
+  }
+  .title:after {
+    content: '';
+    display: block;
+    border-bottom: 5px solid $solid-blue;
+    margin-bottom: -5px;
+    max-width: 50%;
+  }
+  
+  .subtitle {
+  color: $solid-blue;
+  font-size: 90%;
+  font-family: $presentation-heading-font;
+  }
+  
+  
+  .institute, .quarto-title-affiliation {
+    font-style: italic;
+    font-size: 80%;
+  }
+
+  .author, .quarto-title-author-name {
+    color: $solid-blue;
+    font-size: 85%;
+  }
+  
+  .date, .quarto-title-author-name {
+    color: $solid-blue;
+    font-size: 80%;
+  }
+
+  .quarto-title-authors {
+    display: flex;
+    justify-content: left;
+  
+    .quarto-title-author {
+      padding-left: 0em;
+      padding-right: 0em;
+      width: 100%;
+    }
+  }
+  
+  p.author::before, div.quarto-title-author::before {
+    content: "";
+    display: block;
+    border: none;
+    background-color: $body-bg;
+    color: $solid-blue;
+    height: 3px;
+    margin-bottom: 1em;
+  }
+
+  p, a {
+    color: $solid-blue;
+  }
+}
+
+.author {
+  color: $solid-blue;
+  font-size: $h2-font-size;
+  font-family: $presentation-heading-font;
+}
+
+.footer {
+  font-family: $presentation-heading-font;
+}
+
+.reveal .slide-number {
+  font-family: $presentation-heading-font;
+}
+
+.reveal .panel-tabset [role=tab] {
+    font-size: 0.8em;
+}
+
+.reveal .footer {
+    color: black;
+}
+
+.has-dark-background .footer {
+    color: white;
+}
+
+.center-x{
+    text-align: center;
+}
+
+.center-xy {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateY(-50%), translateX(-50%);
+  transform: translateY(-50%), translateX(-50%);
+}
+
+section.has-dark-background a, section.has-dark-background a:hover {
+    color: $Almost-White;
+}
+
+.slide-logo {
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  right: 10px !important;
+  max-height: 10% !important;
+  height: 100% !important;
+  width: auto !important;
+  color: $body-color !important;
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: 10px !important;
+  right: 10px !important;
+  top: unset !important;
+  color: $body-color !important;
+}

@@ -15,7 +15,7 @@ contributes:
       highlight-style: atom-one
       show-slide-number: all
       title-slide-attributes:
-        data-background-color: "#002244"
+        data-background-color: "#FFFFFF"
       preview-links: true
       include-in-header: favicon.html
 # For more design details go to: https://thedocs.worldbank.org/en/doc/723361567518322252-0060022019/original/WBGBrandingandVisualIdentityGuidelinesFebruary2016.pdf
