@@ -8,7 +8,7 @@ rather than the form of their presentations by providing a range of sensible
 defaults, from the implementation of the official color palette to the inclusion
 of a World Bank themed ggplot theme.
 
-See a demo [here]()
+See a demo [here]().
 
 ## Installing and using the theme:
 
