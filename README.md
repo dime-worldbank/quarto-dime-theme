@@ -16,7 +16,7 @@ See a demo [here]().
 
 ## Acknowledgements:
 
-Shoutout to the following creators that have inspired this theme:
+The following creators greatly inspired this theme:
 
 - [The RLadies theme](https://beatrizmilz.github.io/quarto-rladies-theme)
 - [The coeos theme](https://github.com/mcanouil/quarto-revealjs-coeos)
