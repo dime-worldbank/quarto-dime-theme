@@ -182,3 +182,20 @@ section.has-dark-background a, section.has-dark-background a:hover {
   top: unset !important;
   color: $body-color !important;
 }
+
+// Vertically Centering Elements
+.v-center-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+// Vertically and Horizontal Centering Elements
+.vh-center-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  text-align:  center;
+}
