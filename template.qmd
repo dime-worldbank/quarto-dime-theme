@@ -5,12 +5,14 @@ author: "[Bernhard Bieri](https://bernhardbieri.ch)"
 institute: The World Bank
 date: today
 date-format: "dddd, [the] D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM, YYYY"
+bibliography: bib/template.bib
 format:
   worldbank-revealjs:
+    embed-resources: true
+    self-contained-math: true
     logo: logo.png
     footer: "[World Bank](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/BBieri/quartoWBtheme)."
 incremental: true
-embed-resources: false
 ---
 
 ```{r}
@@ -18,38 +20,61 @@ embed-resources: false
 # Add default ggplot theme. This can be overridden by your own theme at
 # the end of the ggplot graph.
 source("_extensions/worldbank/setup-ggplot2-worldbank.R")
+# Install the reticulate package to render Python code.
+# install.packages("reticulate")
 ```
 
-## Quarto
+## Authors
+
+:::: {.columns .vh-center-container}
+
+::: {.column width="33%"}
+<img src="https://img.icons8.com/cotton/64/null/gender-neutral-user--v3.png"/>
+
+**Author 1**
+
+Affiliation
+:::
+
+::: {.column width="33%"}
+<img src="https://img.icons8.com/cotton/64/null/gender-neutral-user--v3.png"/>
+
+**Author 2**
+
+Affiliation
+:::
+
+::: {.column width="34%"}
+<img src="https://img.icons8.com/cotton/64/null/gender-neutral-user--v3.png"/>
+
+**Author 3**
+
+Affiliation
+:::
+
+::::
+
+## Introducing the World Bank's Quarto theme
+
+This presentation template accelerates the creation of
+[Reveal.js](https://revealjs.com/) presentations by taking care of the
+formatting of your presentations so that users can focus on the **content**.
+
+## What is Quarto?
 
 Quarto enables you to weave together content and executable code into a finished presentation.
 To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
 > This is part of the [Quarto documentation](https://quarto.org/docs/presentations/).
 
-```{r}
-library(tidyverse)
-# Prepare data
-cty_mpg <- aggregate(mpg$cty, by = list(mpg$manufacturer), FUN = mean)
-colnames(cty_mpg) <- c("make", "mileage") # change column names
-cty_mpg <- cty_mpg[order(cty_mpg$mileage), ] # sort
-cty_mpg$make <- factor(cty_mpg$make, levels = cty_mpg$make)
-# Plot
-ggplot(cty_mpg, aes(x = make, y = mileage)) +
-  geom_segment(aes(
-    x = make,
-    xend = make,
-    y = 0,
-    yend = mileage
-  ), color = "black") +
-  geom_point(size = 3, color = "blue") +
-  labs(
-    title = "Lollipop Chart",
-    subtitle = "Make Vs Avg. Mileage",
-    caption = "source: mpg"
-  )
-```
+## Why Quarto? What about Rmd presentations? {auto-animate="true"}
 
+- Yihui Xie has [a neat blog post](https://yihui.org/en/2022/04/quarto-r-markdown/) explaining the difference between the two ways of rendering presentations.
+- Quarto also has [a nice FAQ thread](https://quarto.org/docs/faq/rmarkdown.html) on their website about the differences between `.Rmd` and Quarto documents.
+-  **Key Insight 1:** While there is no obvious need for existing `.Rmd` users to switch yet, Quarto's new features will most likely not be backported to `.Rmd`.
+-  **Key Insight 2:** The present template can easily be used by folks running their analysis in Python thanks to the language agnostic nature of Quarto!
+
+# Sharing your presentation! {background-color="#002244"}
 
 ## Bullets
 
@@ -73,6 +98,51 @@ You can embed code like this:
 > This is part of the [Quarto documentation](https://quarto.org/docs/presentations/).
 
 You can also add `text marked as code`!
+
+## Running Python within Quarto Presentation with `{reticulate}` {auto-animate="true"}
+
+You can even render content written in Python directly thanks to the `{reticulate}` R-package and a Python installation.
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+#| code-fold: true
+#| echo: true
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+
+## Equations
+
+Adding Latex style equations is straightforward. Here is Euler's identity:
+
+$$
+\begin{equation}
+e^{i\pi} + 1 = 0
+\end{equation}
+$$
+
+. . .
+
+And here is Shepherd's lemma:
+
+$$
+\begin{equation}
+\frac{P_1 - P_2}{Q_1 - Q_2} > \frac{P_1 - P_3}{Q_1 - Q_3}
+\end{equation}
+$$
 
 # New topic! {background-color="#002244"}
 
@@ -102,7 +172,7 @@ Hi!
 Use `. . .` to separate content as an incremental slide!
 
 
-## You can add R code
+## You can add R code...
 
 ```{r}
 #| echo: true
@@ -114,12 +184,27 @@ g <- starwars |>
   theme_light()
 ```
 
-## And show the results aswell :)
+## You can add R code...and focus on a specific line:
+
+```{r}
+#| echo: true
+#| code-line-numbers: "5"
+library(dplyr)
+library(ggplot2)
+g <- starwars |> 
+  ggplot() +
+  geom_point(aes(x = height, y = mass)) +
+  theme_light()
+```
+
+> See the [Quarto Documentation for more details.](https://quarto.org/docs/presentations/revealjs/#code-blocks)
+
+## Before showing the results :)
 
 ```{r}
 #| fig.align: center
 #| echo: true
-g 
+g
 ```
 
 ## What about tables? {.smaller}
@@ -127,7 +212,7 @@ g
 ### `knitr::kable()`
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="45%"}
 ```{r}
 #| label: kable-ex
 #| echo: true
@@ -146,7 +231,7 @@ knitr::kable(tab)
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="45%"}
 ```{r}
 #| label: kable-ex
 #| eval: true
@@ -175,19 +260,86 @@ gt::gt(tab)
 reactable::reactable(tab)
 ```
 
-## Diagrams with Mermaid!
+## Slide with speaker notes
 
-Read about how to create a diagram in this [post by Mine Çetinkaya-Rundel](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/21-diagrams/).
+Adding speaker notes is easilz done by creating a slide containing a div with class `.notes`, e.g.:
 
-<center>
-<blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/quartotip?src=hash&amp;ref_src=twsrc%5Etfw">#quartotip</a> 21: Create diagrams in Quarto documents using Mermaid or Graphviz in executable code cells, similar to how you create figures.<br><br>Read more: <a href="https://t.co/3qx9oSNCay">https://t.co/3qx9oSNCay</a> <a href="https://t.co/fYzGcISl4h">pic.twitter.com/fYzGcISl4h</a></p>&mdash; Quarto (@quarto_pub) <a href="https://twitter.com/quarto_pub/status/1549271325943947270?ref_src=twsrc%5Etfw">July 19, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
+```
+## Slide with speaker notes
 
+Slide content
+
+::: {.notes}
+Speaker notes go here.
+:::
+```
+
+When in presentation mode, you can access the speaker notes by pressing `s` on your keyboard.
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+## Creating an automatic bibliography:
+
+Research is almost always built upon existing knowledge. Acknowledging the latter is therefore key. Quarto allows this bz specifying `bibliography: bibfile.bib` in the YAML header.
+
+One can then add citations with the @ key [@arrowReviewOrdinalistUtilitarianNotes1973]. To generate the bibliography simply insert a slide with:
+
+```
+## References
+
+::: {#refs}
+:::
+```
+
+> See the [Quarto documentation entry on citations](https://quarto.org/docs/authoring/footnotes-and-citations.html#citations) for more details.
+
+## References
+
+::: {#refs}
+:::
+
+# Sharing your presentation! {background-color="#002244"}
+
+## Presenting your rendered presentation
+
+Rendering your presentation will create either a self-contained HTML presentation or an HTML file plus a folder with all supporting files needed by your presentation depending on whether `embed-resources:` is set to `true` or not in the YAML header.
+
+To present your slides locally, simply open the `html` file in your favorite browser. Don't forget to check out the key-bindings by typing `?` once your presentation is open in your browser.
+
+## Sharing your HTML presentation online
+
+Sharing your HTML presentation takes one line of code! Open up a terminal and type the following line to deploy your presentation to Netlify.
+
+```
+quarto publish netlify yourpresentation.qmd
+```
+
+> See the [Quarto documentation for ways of publishing your presentation](https://quarto.org/docs/output-formats/html-publishing.html#standalone-html).
 
 ## Exporting into PDF
 
 You can use the function `pagedown::chrome_print()` to print the HTML version into a PDF!
 
 ```r
+# install.packages("pagedown")
 pagedown::chrome_print("path-to-file.html")
 ```
+
+## Acknowlegements
+
+This presentation and the template it showcases are inspired from the following
+creators:
+
+- [The RLadies theme](https://beatrizmilz.github.io/quarto-rladies-theme)
+- [The coeos theme](https://github.com/mcanouil/quarto-revealjs-coeos)
+- [Hrbrmstr's minimalistic `{ggplot}` themes](https://github.com/hrbrmstr/hrbrthemes)
+
+## Useful Resources
+
+Want to go further? Here are some great resources to get you started:
+
+- [Presenting Quarto Slides Documentation](https://quarto.org/docs/presentations/revealjs/presenting.html)
+- [The Advanced Quarto/Reveal Documentation](https://quarto.org/docs/presentations/revealjs/advanced.html)
+- [A Quarto Tip a Day](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/)
