@@ -8,11 +8,10 @@ date-format: "dddd, [the] D[<sup style='font-size:65%;font-style:italic;'>th</su
 bibliography: bib/template.bib
 format:
   worldbank-revealjs:
-    embed-resources: true
+    self-contained: true
     self-contained-math: true
     logo: logo.png
     footer: "[World Bank](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/BBieri/quartoWBtheme)."
-incremental: true
 ---
 
 ```{r}
@@ -207,11 +206,82 @@ g <- starwars |>
 g
 ```
 
+## Creating interactive graphs with Observable JS {.scrollable}
+
+```{ojs}
+data = FileAttachment("palmer-penguins.csv").csv({ typed: true })
+```
+
+```{ojs}
+// Function to filter data
+filtered = data.filter(function(penguin) {
+  return bill_length_min < penguin.bill_length_mm &&
+         islands.includes(penguin.island);
+})
+```
+
+```{ojs}
+//| panel: sidebar
+
+viewof bill_length_min = Inputs.range(
+  [32, 50], 
+  {value: 35, step: 1, label: "Bill length (min):"}
+)
+viewof islands = Inputs.checkbox(
+  ["Torgersen", "Biscoe", "Dream"], 
+  { value: ["Torgersen", "Biscoe"], 
+    label: "Islands:"
+  }
+)
+```
+
+## Plot
+
+```{ojs}
+Plot.rectY(filtered, 
+  Plot.binX(
+    {y: "count"}, 
+    {x: "body_mass_g", fill: "species", thresholds: 20}
+  ))
+  .plot({
+    facet: {
+      data: filtered,
+      x: "sex",
+      y: "species",
+      marginRight: 80
+    },
+    marks: [
+      Plot.frame(),
+    ]
+  }
+)
+```
+
+## Another Observable JS example using the World Bank API
+
+
+## Creating live forms with Observable JS
+
+```{ojs}
+// Import deps
+import {JSONstat} from "@jsonstat/toolkit"
+```
+
+
+```{ojs}
+// Import data
+inst1 = JSONstat("https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CD?mrv=15&format=jsonstat")
+ds1 = inst1.Dataset(0)
+obj1 = ds1.toTable({ type: "arrobj", field: "label", vlabel: "VALUE" })
+Inputs.table(obj1)
+```
+
+
 ## What about tables? {.smaller}
 
 ### `knitr::kable()`
 
-::: columns
+::: {.columns .h-center-container}
 ::: {.column width="45%"}
 ```{r}
 #| label: kable-ex
