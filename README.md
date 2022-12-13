@@ -10,7 +10,7 @@ of a World Bank themed ggplot theme.
 
 See a demo [here]().
 
-## Installing and using the theme:
+## Installing and using this theme:
 
 
 
