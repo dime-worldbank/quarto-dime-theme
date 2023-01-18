@@ -21,6 +21,8 @@ format:
 source("_extensions/worldbank/setup-ggplot2-worldbank.R")
 # Install the reticulate package to render Python code.
 # install.packages("reticulate")
+# Link your conda environment
+reticulate::use_condaenv("quartoWBtheme")
 ```
 
 ## Authors
@@ -61,10 +63,12 @@ formatting of your presentations so that users can focus on the **content**.
 
 ## What is Quarto?
 
-Quarto enables you to weave together content and executable code into a finished presentation.
-To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+Quarto enables you to weave together text written in Markdown and
+executable code into a finished publication-ready document. Quarto is a
+**language agnostic** making it ideal for research teams working with
+different languages such as Python and R.
 
-> This is part of the [Quarto documentation](https://quarto.org/docs/presentations/).
+> To learn more about Quarto presentations specifically see <https://quarto.org/docs/presentations/>.
 
 ## Why Quarto? What about Rmd presentations? {auto-animate="true"}
 
@@ -73,7 +77,7 @@ To learn more about Quarto presentations see <https://quarto.org/docs/presentati
 -  **Key Insight 1:** While there is no obvious need for existing `.Rmd` users to switch yet, Quarto's new features will most likely not be backported to `.Rmd`.
 -  **Key Insight 2:** The present template can easily be used by folks running their analysis in Python thanks to the language agnostic nature of Quarto!
 
-# Sharing your presentation! {background-color="#002244"}
+# Creating a New Section! {background-color="#002244"}
 
 ## Bullets
 
@@ -84,7 +88,7 @@ When you click the **Render** button a document will be generated that includes:
 
 > This is part of the [Quarto documentation](https://quarto.org/docs/presentations/).
 
-## Code
+## R Code
 
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code.
 You can embed code like this:
@@ -98,7 +102,7 @@ You can embed code like this:
 
 You can also add `text marked as code`!
 
-## Running Python within Quarto Presentation with `{reticulate}` {auto-animate="true"}
+## Integrated Python within an R Quarto Presentation with `{reticulate}` {auto-animate="true" .scrollable}
 
 You can even render content written in Python directly thanks to the `{reticulate}` R-package and a Python installation.
 
@@ -107,6 +111,9 @@ You can even render content written in Python directly thanks to the `{reticulat
 #| fig-cap: "A line plot on a polar axis"
 #| code-fold: true
 #| echo: true
+
+# Do not forget to create an environment with numpy and pyplot installed and
+# import it with reticulate at the start of the .qmd file.
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -145,7 +152,7 @@ $$
 
 # New topic! {background-color="#002244"}
 
-To make a slide like this, use:
+To make a "section" slide like this, use:
 
     # Title of slide {background-color="#002244"}
 
@@ -170,8 +177,13 @@ Hi!
 
 Use `. . .` to separate content as an incremental slide!
 
+# More examples! {background-color="#002244"}
 
-## You can add R code...
+To make a "section" slide like this, use:
+
+    # Title of slide {background-color="#002244"}
+
+## You can add R code to plot data...
 
 ```{r}
 #| echo: true
@@ -180,20 +192,32 @@ library(ggplot2)
 g <- starwars |> 
   ggplot() +
   geom_point(aes(x = height, y = mass)) +
-  theme_light()
+  theme_wb()
 ```
 
-## You can add R code...and focus on a specific line:
+## You can add R code to plot data...and focus on (a) specific line(s):
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "5"
+#| code-line-numbers: "4-6"
 library(dplyr)
 library(ggplot2)
-g <- starwars |> 
+
+starwars <- starwars |>
+  dplyr::mutate(name = ifelse(name %in% c("Jabba Desilijic Tiure", "Tarfful"),
+                              name, ""))
+
+g <- starwars |>
   ggplot() +
-  geom_point(aes(x = height, y = mass)) +
-  theme_light()
+  geom_point(aes(x = height, y = mass, col = sex)) +
+  ggrepel::geom_text_repel(aes(x = height,
+                               y = mass,
+                               label = name),
+                           max.overlaps = 100) +
+  labs(title = "Star Wars Example",
+       caption = "Star Wars Example Dataset",
+       col = "Sex") +
+  theme_wb()
 ```
 
 > See the [Quarto Documentation for more details.](https://quarto.org/docs/presentations/revealjs/#code-blocks)
@@ -206,22 +230,83 @@ g <- starwars |>
 g
 ```
 
-## Creating interactive graphs with Observable JS {.scrollable}
+## A few more penguin examples {.scrollable}
+
+Let's create a few more plots using the great `{palmerpenguins}` dataset and
+illustrate Simpson's Paradox. These examples are inspired by
+[this great talk](https://apreshill.github.io/palmerpenguins-useR-2022).
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| fig.align: center
+#| echo: false
+
+penguins <- palmerpenguins::penguins
+
+penguins |>
+  ggplot(aes(bill_length_mm, bill_depth_mm)) +
+  geom_point() +
+  geom_smooth(method = lm,
+              formula = y ~ x,
+              se = F) +
+  labs(title = "Palmer Penguins: Simpson's Paradox",
+       caption = "Palmer Penguins Dataset",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       col = "Species") +
+  theme_wb()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig.align: center
+#| echo: false
+
+penguins <- palmerpenguins::penguins
+
+penguins |>
+  ggplot(aes(bill_length_mm, bill_depth_mm, col = species)) +
+  geom_point() +
+  geom_smooth(method = lm,
+              formula = y ~ x,
+              se = F) +
+  ggpubr::stat_regline_equation(
+    aes(label =  paste(..eq.label.., ..adj.rr.label.., sep = "~~~~")),
+    formula = formula
+  ) +
+  labs(title = "Palmer Penguins: Simpson's Paradox",
+       caption = "Palmer Penguins Dataset",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       col = "Species") +
+  theme_wb()
+```
+:::
+
+::::
+
+## Creating interactive graphs with Observable JS {.scrollable .small}
+
+Another way of creating interactive visualizations within your presentations
+is to use [Observable JS](https://observablehq.com/), a Java Script framework
+developed by the creators of [D3.js](https://d3js.org/). See the [Quarto
+documentation](https://quarto.org/docs/interactive/ojs/) for more details.
 
 ```{ojs}
 data = FileAttachment("palmer-penguins.csv").csv({ typed: true })
 ```
 
 ```{ojs}
+//| panel: sidebar
+
 // Function to filter data
 filtered = data.filter(function(penguin) {
   return bill_length_min < penguin.bill_length_mm &&
          islands.includes(penguin.island);
 })
-```
-
-```{ojs}
-//| panel: sidebar
 
 viewof bill_length_min = Inputs.range(
   [32, 50], 
@@ -234,8 +319,6 @@ viewof islands = Inputs.checkbox(
   }
 )
 ```
-
-## Plot
 
 ```{ojs}
 Plot.rectY(filtered, 
@@ -257,25 +340,46 @@ Plot.rectY(filtered,
 )
 ```
 
-## Another Observable JS example using the World Bank API
+## Penguin Regression Tables
 
+:::: {.columns .vh-center-container}
 
-## Creating live forms with Observable JS
+::: {.column width="40%"}
 
-```{ojs}
-// Import deps
-import {JSONstat} from "@jsonstat/toolkit"
+$$
+\text{Bill Depth}_{i} = \alpha + \beta \times \text{Bill Length}_{i} + \epsilon_i
+$$
+
+```{r}
+#| fig.align: center
+#| echo: false
+
+fullmodel <- lm(bill_depth_mm ~ bill_length_mm, penguins)
+huxtable::huxreg(fullmodel) |>
+  huxtable::set_font_size(11) # Smaller font size to fit on slide
+```
+:::
+
+:::{.column width="40%"}
+
+$$
+\text{Bill Depth}_{i, k} = \alpha_k + \beta_k \times \text{Bill Length}_{k, i} + \epsilon_i \\
+\text{where}\ k = \text{"Gentoo"}
+$$
+
+```{r}
+#| fig.align: center
+#| echo: false
+
+gentoomodel <- lm(bill_depth_mm ~ bill_length_mm,
+                  dplyr::filter(penguins, species == "Gentoo"))
+huxtable::huxreg(gentoomodel) |>
+  huxtable::set_font_size(11) # Smaller font size to fit on slide
 ```
 
+:::
 
-```{ojs}
-// Import data
-inst1 = JSONstat("https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CD?mrv=15&format=jsonstat")
-ds1 = inst1.Dataset(0)
-obj1 = ds1.toTable({ type: "arrobj", field: "label", vlabel: "VALUE" })
-Inputs.table(obj1)
-```
-
+::::
 
 ## What about tables? {.smaller}
 
@@ -374,23 +478,32 @@ One can then add citations with the @ key [@arrowReviewOrdinalistUtilitarianNote
 
 ## Presenting your rendered presentation
 
-Rendering your presentation will create either a self-contained HTML presentation or an HTML file plus a folder with all supporting files needed by your presentation depending on whether `embed-resources:` is set to `true` or not in the YAML header.
+Rendering your presentation by pressing `CTRL/CMD + K` or the `render` button
+at the top of the `.qmd` file will create either a self-contained HTML
+presentation or an HTML file plus a folder with all supporting files
+needed by your presentation depending on whether `embed-resources:` is
+set to `true` or not in the YAML header.
 
-To present your slides locally, simply open the `html` file in your favorite browser. Don't forget to check out the key-bindings by typing `?` once your presentation is open in your browser.
+To present your slides locally, simply open the `html` file in your favorite
+browser. Don't forget to check out the key-bindings by typing `?` once your
+presentation is open in your browser.
 
 ## Sharing your HTML presentation online
 
-Sharing your HTML presentation takes one line of code! Open up a terminal and type the following line to deploy your presentation to Netlify.
+Sharing your HTML presentation takes one line of code! Open up a terminal and
+type the following line to deploy your presentation to Netlify. This requires
+a free [Netlify](https://www.netlify.com/) account to work.
 
 ```
 quarto publish netlify yourpresentation.qmd
 ```
 
-> See the [Quarto documentation for ways of publishing your presentation](https://quarto.org/docs/output-formats/html-publishing.html#standalone-html).
+> See the [Quarto documentation for additional ways of publishing your presentation](https://quarto.org/docs/output-formats/html-publishing.html#standalone-html).
 
 ## Exporting into PDF
 
-You can use the function `pagedown::chrome_print()` to print the HTML version into a PDF!
+You can use the function `pagedown::chrome_print()` to print the HTML version
+into a PDF!
 
 ```r
 # install.packages("pagedown")
@@ -400,7 +513,7 @@ pagedown::chrome_print("path-to-file.html")
 ## Acknowlegements
 
 This presentation and the template it showcases are inspired from the following
-creators:
+creators. Check out their great themes.
 
 - [The RLadies theme](https://beatrizmilz.github.io/quarto-rladies-theme)
 - [The coeos theme](https://github.com/mcanouil/quarto-revealjs-coeos)
