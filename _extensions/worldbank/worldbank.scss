@@ -49,7 +49,10 @@ $Almost-White: #f8f8f8;
 $body-color: #000000;
 $link-color: #009FDA;
 $solid-blue: #002244;
-$presentation-font-size-root: 35px;
+$presentation-font-size-root: 28px;
+
+// math
+$math-fontsize: 80%;
 
 /*-- scss:rules --*/
 .reveal pre code {
@@ -203,3 +206,9 @@ section.has-dark-background a, section.has-dark-background a:hover {
 .h-center-container {
   text-align:  center;
 }
+
+// Math
+.MathJax {
+    font-size: $math-fontsize !important;
+}
+
