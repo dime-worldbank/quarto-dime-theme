@@ -8,8 +8,16 @@ date-format: "dddd, [the] D[<sup style='font-size:65%;font-style:italic;'>th</su
 bibliography: bib/template.bib
 format:
   worldbank-revealjs:
+    # Table of Contents
+    toc: true
+    toc_float: true
+    toc-depth: 1
+    toc-location: body
+    toc-title: "Contents"
+    # Generate a self contained file
     self-contained: true
     self-contained-math: true
+    # Logo and footer options
     logo: logo.png
     footer: "[World Bank](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/BBieri/quartoWBtheme)."
 ---
@@ -77,7 +85,7 @@ different languages such as Python and R.
 -  **Key Insight 1:** While there is no obvious need for existing `.Rmd` users to switch yet, Quarto's new features will most likely not be backported to `.Rmd`.
 -  **Key Insight 2:** The present template can easily be used by folks running their analysis in Python thanks to the language agnostic nature of Quarto!
 
-# Creating a New Section! {background-color="#002244"}
+# The Basics! {background-color="#002244"}
 
 ## Bullets
 
@@ -150,7 +158,20 @@ $$
 \end{equation}
 $$
 
-# New topic! {background-color="#002244"}
+## Images
+
+Adding images is easy, simply type `![Photo Description](path\to\image)`, et
+voilà!
+
+![](https://cdn.pixabay.com/photo/2019/06/21/19/27/switzerland-4290226_960_720.jpg)
+
+Source: [Link](https://cdn.pixabay.com/photo/2019/06/21/19/27/switzerland-4290226_960_720.jpg)
+
+## Background image {background-image="train.jpg"}
+
+[Source: [Link](https://cdn.pixabay.com/photo/2012/10/25/23/18/train-62849_960_720.jpg)]{.absolute bottom=0 left=0}
+
+# Advanced Layouts! {background-color="#002244" background-opacity="0.8"}
 
 To make a "section" slide like this, use:
 
@@ -176,12 +197,6 @@ Hi!
 
 
 Use `. . .` to separate content as an incremental slide!
-
-# More examples! {background-color="#002244"}
-
-To make a "section" slide like this, use:
-
-    # Title of slide {background-color="#002244"}
 
 ## You can add R code to plot data...
 
@@ -340,7 +355,7 @@ Plot.rectY(filtered,
 )
 ```
 
-## Penguin Regression Tables
+## Penguin regression tables
 
 :::: {.columns .vh-center-container}
 
@@ -381,7 +396,7 @@ huxtable::huxreg(gentoomodel) |>
 
 ::::
 
-## What about tables? {.smaller}
+## What about other tables? {.smaller}
 
 ### `knitr::kable()`
 
@@ -474,7 +489,7 @@ One can then add citations with the @ key [@arrowReviewOrdinalistUtilitarianNote
 ::: {#refs}
 :::
 
-# Sharing your presentation! {background-color="#002244"}
+# Present and Share your Presentation with the World! {background-color="#002244"}
 
 ## Presenting your rendered presentation
 
