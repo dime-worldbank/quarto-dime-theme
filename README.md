@@ -8,7 +8,7 @@ rather than the form of their presentations by providing a range of sensible
 defaults, from the implementation of the official color palette to the inclusion
 of a World Bank `{ggplot}` theme.
 
-See a demo [here]().
+See a demo [here](https://bbieri.github.io/quartoWBtheme/).
 
 ## Using this theme:
 
@@ -39,6 +39,10 @@ Quarto.
 - [The Advanced Quarto/Reveal Documentation](https://quarto.org/docs/presentations/revealjs/advanced.html)
 - [A Quarto Tip a Day](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/)
 
+Feel free to [open an issue](https://github.com/BBieri/quartoWBtheme/issues) if
+you encounter a bug or want to suggest an improvement of the template. PRs are
+welcome too.
+
 ## Acknowledgements:
 
 The following creators greatly inspired this theme:
@@ -56,5 +60,6 @@ All photos used as examples in the presentation are obtained under
 found [here](https://pixabay.com/photos/train-railway-snow-winter-railroad-62849/)
 and the mountain picture [here](https://pixabay.com/photos/switzerland-sunrise-mountain-clouds-4290226/).
 
-
-*Disclaimer: The views expressed on this project/website are my own. They do not necessarily represent the views of the World Bank and its affiliated organizations.*
+*Disclaimer: The views expressed on this project/website are my own. They do
+not necessarily represent the views of the World Bank and its affiliated
+organizations.*
