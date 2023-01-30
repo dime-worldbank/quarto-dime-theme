@@ -24,7 +24,7 @@ jobs:
         with:
           r-version: '4.2.0'
       
-      - name: Install xmllint
+      - name: Install libcurl
         run: sudo apt-get install libcurl4-openssl-dev
 
       - name: Install R Dependencies
