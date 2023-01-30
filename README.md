@@ -1,4 +1,4 @@
-# quartoWBtheme
+# QuartoWBTheme <img src="QuartoWBTheme.png" align="right" height="200" />
 
 A World Bank theme for Quarto Reveal.js Presentations. **Why Quarto?** Because
 it is a cross-language publishing platform that will allow you to create
