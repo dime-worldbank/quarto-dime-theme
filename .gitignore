@@ -41,3 +41,5 @@ vignettes/*.pdf
 # Yaml file for Netlify Publishing
 _publish.yml
 README.html
+
+/.quarto/
