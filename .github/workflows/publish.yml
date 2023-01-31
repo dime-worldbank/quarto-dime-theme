@@ -33,6 +33,9 @@ jobs:
       - name: Install libgdal
         run: sudo apt-get install libgdal-dev
       
+      - name: Install libudunits2
+        run: sudo apt-get install libudunits2-dev
+      
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
         with:
