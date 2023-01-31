@@ -26,7 +26,13 @@ jobs:
       
       - name: Install libcurl
         run: sudo apt-get install libcurl4-openssl-dev
+      
+      - name: Install GDAL
+        run: sudo apt-get install gdal-bin
 
+      - name: Install libgdal
+        run: sudo apt-get install libgdal-dev
+      
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
         with:
