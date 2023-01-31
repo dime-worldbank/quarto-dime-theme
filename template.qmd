@@ -8,6 +8,8 @@ date-format: "dddd, [the] D[<sup style='font-size:65%;font-style:italic;'>th</su
 bibliography: bib/template.bib
 format:
   worldbank-revealjs:
+    # Output file
+    output-file: index.html
     # Table of Contents
     toc: true
     toc_float: true
