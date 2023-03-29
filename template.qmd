@@ -31,6 +31,7 @@ format:
 source("_extensions/worldbank/setup-ggplot2-worldbank.R")
 # Install the reticulate package to render Python code.
 # install.packages("reticulate")
+# use_python("C:/Python311/python.exe")
 # Link your conda environment
 reticulate::use_condaenv("quartoWBtheme")
 ```
