@@ -1,31 +1,5 @@
 /*-- scss:defaults --*/
 
-/* Brand colors:
-    - Solid Blue: #002244
-    - Bright Blue: #009FDA
-    - Black: #000000
-    - White: #FFFFFF
-  Secondary colors:
-    - Warm/Saturated:
-      - #F05023
-      - #FDB714
-      - #2EB1C2D
-      - #F78D28
-    - Cool/Saturated:
-      - #009CA7
-      - #00AB51
-      - #872B90
-      - #00A996
-    - Warm/Muted:
-      - #98252B
-      - #E16A2D
-      - #B88C1D
-    - Cool/Muted
-      - #614776
-      - #006068
-      - #006450
-*/
-
 // importing fonts Arimo and Lato
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap');
 
@@ -34,21 +8,21 @@ $font-family-sans-serif: 'Lato', sans-serif !default;
 
 // headings
 $presentation-heading-font: 'Lato', sans-serif  !default;
-$presentation-heading-color: #002244 !default;
+$presentation-heading-color: #07202E !default;
 $h1-font-size: 1.6em !default;
 $h2-font-size: 1.3em !default;
 $h3-font-size: 1.15em !default;
 
 //code
-$code-color: #009FDA !default;
+$code-color: #4090BE !default;
 $font-family-monospace: 'Inconsolata', monospace  !default;
 
 // general  
 $body-bg: #FFFFFF;
 $Almost-White: #f8f8f8;
 $body-color: #000000;
-$link-color: #009FDA;
-$solid-blue: #002244;
+$link-color: #4090BE;
+$solid-blue: #07202E;
 $presentation-font-size-root: 28px;
 
 // math
@@ -60,6 +34,10 @@ $math-fontsize: 80%;
   font-size: 1em;
   padding: 0.5em;
   line-height: 1.2em;
+}
+
+.reveal .slide-number a {
+  color: $link-color;
 }
 
 #title-slide {
@@ -173,7 +151,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
   position: fixed !important;
   top: 0 !important;
   right: 10px !important;
-  max-height: 10% !important;
+  max-height: 8% !important;
   height: 100% !important;
   width: auto !important;
   color: $body-color !important;

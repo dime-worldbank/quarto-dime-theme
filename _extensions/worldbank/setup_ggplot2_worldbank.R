@@ -1,28 +1,4 @@
-#  Brand colors:
-#   - Solid Blue: #002244
-#   - Bright Blue: #009FDA
-#   - Black: #000000
-#   - White: #FFFFFF
-#  Secondary colors:
-#   - Warm/Saturated:
-#   - #F05023
-#   - #FDB714
-#   - #2EB1C2D
-#   - #F78D28
-#   - Cool/Saturated:
-#   - #009CA7
-#   - #00AB51
-#   - #872B90
-#   - #00A996
-#   - Warm/Muted:
-#   - #98252B
-#   - #E16A2D
-#   - #B88C1D
-#   - Cool/Muted
-#   - #614776
-#   - #006068
-#   - #006450
-
+# A theme for {ggplot2} graphs for the World Bank by DIME.
 theme_wb <- function(base_family = "sans",
                      base_size = 11.5,
                      plot_title_family = base_family,
@@ -51,11 +27,11 @@ theme_wb <- function(base_family = "sans",
                      axis_col = "#cccccc",
                      axis = FALSE,
                      ticks = FALSE) {
-  
   ret <-
     ggplot2::theme_minimal(base_family = base_family, base_size = base_size)
   
-  ret <- ret + ggplot2::theme(legend.background = ggplot2::element_blank())
+  ret <-
+    ret + ggplot2::theme(legend.background = ggplot2::element_blank())
   ret <- ret + ggplot2::theme(legend.key = ggplot2::element_blank())
   
   if (inherits(grid, "character") | grid == TRUE) {
@@ -68,13 +44,17 @@ theme_wb <- function(base_family = "sans",
     
     if (inherits(grid, "character")) {
       if (regexpr("X", grid)[1] < 0)
-        ret <- ret + ggplot2::theme(panel.grid.major.x = ggplot2::element_blank())
+        ret <-
+          ret + ggplot2::theme(panel.grid.major.x = ggplot2::element_blank())
       if (regexpr("Y", grid)[1] < 0)
-        ret <- ret + ggplot2::theme(panel.grid.major.y = ggplot2::element_blank())
+        ret <-
+          ret + ggplot2::theme(panel.grid.major.y = ggplot2::element_blank())
       if (regexpr("x", grid)[1] < 0)
-        ret <- ret + ggplot2::theme(panel.grid.minor.x = ggplot2::element_blank())
+        ret <-
+          ret + ggplot2::theme(panel.grid.minor.x = ggplot2::element_blank())
       if (regexpr("y", grid)[1] < 0)
-        ret <- ret + ggplot2::theme(panel.grid.minor.y = ggplot2::element_blank())
+        ret <-
+          ret + ggplot2::theme(panel.grid.minor.y = ggplot2::element_blank())
     }
     
   } else {
@@ -110,13 +90,19 @@ theme_wb <- function(base_family = "sans",
   
   if (!ticks) {
     ret <- ret + ggplot2::theme(axis.ticks = ggplot2::element_blank())
-    ret <- ret + ggplot2::theme(axis.ticks.x = ggplot2::element_blank())
-    ret <- ret + ggplot2::theme(axis.ticks.y = ggplot2::element_blank())
+    ret <-
+      ret + ggplot2::theme(axis.ticks.x = ggplot2::element_blank())
+    ret <-
+      ret + ggplot2::theme(axis.ticks.y = ggplot2::element_blank())
   } else {
-    ret <- ret + ggplot2::theme(axis.ticks = ggplot2::element_line(size = 0.15))
-    ret <- ret + ggplot2::theme(axis.ticks.x = ggplot2::element_line(size = 0.15))
-    ret <- ret + ggplot2::theme(axis.ticks.y = ggplot2::element_line(size = 0.15))
-    ret <- ret + ggplot2::theme(axis.ticks.length = grid::unit(5, "pt"))
+    ret <-
+      ret + ggplot2::theme(axis.ticks = ggplot2::element_line(size = 0.15))
+    ret <-
+      ret + ggplot2::theme(axis.ticks.x = ggplot2::element_line(size = 0.15))
+    ret <-
+      ret + ggplot2::theme(axis.ticks.y = ggplot2::element_line(size = 0.15))
+    ret <-
+      ret + ggplot2::theme(axis.ticks.length = grid::unit(5, "pt"))
   }
   
   xj <-
@@ -142,13 +128,13 @@ theme_wb <- function(base_family = "sans",
   
   ret <-
     ret + ggplot2::theme(axis.text.x = ggplot2::element_text(size = axis_text_size, margin =
-                                             + ggplot2::margin(t = 0)))
+                                                               +ggplot2::margin(t = 0)))
   ret <-
     ret + ggplot2::theme(axis.text.y = ggplot2::element_text(size = axis_text_size, margin =
-                                             + ggplot2::margin(r = 0)))
+                                                               +ggplot2::margin(r = 0)))
   ret <-
     ret + ggplot2::theme(axis.title = ggplot2::element_text(size = axis_title_size, family =
-                                            axis_title_family))
+                                                              axis_title_family))
   ret <-
     ret + ggplot2::theme(
       axis.title.x = ggplot2::element_text(
@@ -186,13 +172,14 @@ theme_wb <- function(base_family = "sans",
         family = strip_text_family
       )
     )
-  ret <- ret + ggplot2::theme(panel.spacing = grid::unit(2, "lines"))
+  ret <-
+    ret + ggplot2::theme(panel.spacing = grid::unit(2, "lines"))
   ret <-
     ret + ggplot2::theme(
       plot.title = ggplot2::element_text(
         hjust = 0,
         size = plot_title_size,
-        margin = + ggplot2::margin(b = plot_title_margin),
+        margin = +ggplot2::margin(b = plot_title_margin),
         family = plot_title_family,
         face = plot_title_face
       )
@@ -202,7 +189,7 @@ theme_wb <- function(base_family = "sans",
       plot.subtitle = ggplot2::element_text(
         hjust = 0,
         size = subtitle_size,
-        margin = + ggplot2::margin(b = subtitle_margin),
+        margin = +ggplot2::margin(b = subtitle_margin),
         family = subtitle_family,
         face = subtitle_face
       )
@@ -212,7 +199,7 @@ theme_wb <- function(base_family = "sans",
       plot.caption = ggplot2::element_text(
         hjust = 1,
         size = caption_size,
-        margin = + ggplot2::margin(t = caption_margin),
+        margin = +ggplot2::margin(t = caption_margin),
         family = caption_family,
         face = caption_face
       )
@@ -239,8 +226,12 @@ if (nzchar(system.file(package = "ggtext"))) {
 ggplot2::update_geom_defaults("point", list(colour = ggplot2::theme_get()$line$colour))
 
 options(
-  ggplot2.discrete.colour = function(...) ggplot2::scale_colour_viridis_d(..., begin = 0.15, end = 0.85),
-  ggplot2.discrete.fill = function(...) ggplot2::scale_fill_viridis_d(..., begin = 0.15, end = 0.85),
-  ggplot2.continuous.colour = function(...) ggplot2::scale_colour_viridis_c(..., begin = 0.15, end = 0.85),
-  ggplot2.continuous.fill = function(...) ggplot2::scale_fill_viridis_c(..., begin = 0.15, end = 0.85)
+  ggplot2.discrete.colour = function(...)
+    ggplot2::scale_colour_viridis_d(..., begin = 0.15, end = 0.85),
+  ggplot2.discrete.fill = function(...)
+    ggplot2::scale_fill_viridis_d(..., begin = 0.15, end = 0.85),
+  ggplot2.continuous.colour = function(...)
+    ggplot2::scale_colour_viridis_c(..., begin = 0.15, end = 0.85),
+  ggplot2.continuous.fill = function(...)
+    ggplot2::scale_fill_viridis_c(..., begin = 0.15, end = 0.85)
 )

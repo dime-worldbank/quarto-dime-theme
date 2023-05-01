@@ -21,19 +21,21 @@ quarto use template BBieri/quartoWBtheme
 
 This will copy all required stylesheets and templates to your project folder
 of the latest version of the template. You can then remove files that you don't
-need and edit the `.qmd` presentation.
+need and edit the `.qmd` presentation to fit your needs.
 
 ## Building the presentation:
 
 To build the presentation, simply run `quarto render template.qmd` from the
 same console or open up the `template.qmd` file and hit `CTRL/CMD + K` or the
 corresponding shortcut depending on your OS and text editor. This will generate
-an `html` file you will be able to present.
+an `html` file you will be able to present and share with your audience. Check
+out the [demo](https://bbieri.github.io/quartoWBtheme/) for additional ways
+of sharing your presentation such as PDFs.
 
 ## Useful Resources
 
-Want to go further? Here are some great resources to get you started with
-Quarto.
+Want to go further than this template? Here are some great resources to get you
+started with Quarto.
 
 - [Presenting Quarto Slides Documentation](https://quarto.org/docs/presentations/revealjs/presenting.html)
 - [The Advanced Quarto/Reveal Documentation](https://quarto.org/docs/presentations/revealjs/advanced.html)
@@ -43,7 +45,13 @@ Feel free to [open an issue](https://github.com/BBieri/quartoWBtheme/issues) if
 you encounter a bug or want to suggest an improvement of the template. PRs are
 welcome too.
 
-## Acknowledgements:
+## Available Logos:
+
+World Bank and DIME logos can be added by editing the YAML header of the `.qmd`
+file. The list of available logos can be found in the `logos` folder of the
+theme repository.
+
+## Acknowledgements and Disclaimers:
 
 The following creators greatly inspired this theme:
 
@@ -61,5 +69,4 @@ found [here](https://pixabay.com/photos/train-railway-snow-winter-railroad-62849
 and the mountain picture [here](https://pixabay.com/photos/switzerland-sunrise-mountain-clouds-4290226/).
 
 *Disclaimer: The views expressed on this project/website are my own. They do
-not necessarily represent the views of the World Bank and its affiliated
-organizations.*
+not represent the views of the World Bank and its affiliated organizations.*
