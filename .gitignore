@@ -43,3 +43,5 @@ _publish.yml
 README.html
 
 /.quarto/
+
+_freeze/
