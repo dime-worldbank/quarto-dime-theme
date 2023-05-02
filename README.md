@@ -51,6 +51,20 @@ World Bank and DIME logos can be added by editing the YAML header of the `.qmd`
 file. The list of available logos can be found in the `logos` folder of the
 theme repository.
 
+```
+logos
+├── DIME_BLACK.png
+├── DIME_COLOR.png
+├── DIME_WHITE.png
+├── WB-DEC-Impact-horizontal-black-high.png
+├── WB-DEC-Impact-horizontal-RGB-high.png
+├── WB-DEC-Impact-horizontal-white-high.png
+├── WB-WBG-horizontal-black.png
+├── WB-WBG-horizontal-grayscale.png
+├── WB-WBG-horizontal-RGB.png
+└── WB-WBG-horizontal-white.png
+```
+
 ## Acknowledgements and Disclaimers:
 
 The following creators greatly inspired this theme:
