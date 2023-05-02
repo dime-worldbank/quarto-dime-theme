@@ -518,8 +518,8 @@ cafe <- getbb("washington dc") |>
 cafe <- cafe$osm_points |>
   st_intersection(dcosmborders)
 
-title <- "<span style='font-family:Arial;font-size:10pt;'>**Washington, DC**</span><br><br>
-<span style='font-size:4pt;'>Map of <span style='font-size:5pt; color:#D1BE9C'>University Campuses</span> and <span style='font-size:5pt; color:#EBB9DF'>Cafes</span> in<br> Washington, DC according to OSM data.</span>"
+title <- "<span style='font-family:Arial;font-size:10pt;'>**Washington, DC**</span><br>
+<span style='font-size:6pt;'>Map of <span style='font-size:7pt; color:#D1BE9C'>University Campuses</span><br>and <span style='font-size:7pt; color:#EBB9DF'>Cafes</span> in Washington, DC.</span>"
 
 ggplot() +
   geom_sf(data = dcosmborders,
@@ -553,7 +553,7 @@ ggplot() +
     data = cafe,
     fill = "#EBB9DF",
     color = "#EBB9DF",
-    size = 1,
+    size = 0.65,
     alpha = 0.75
   ) +
   scale_y_continuous(limits = c(38.79163, 38.99597)) +
@@ -568,7 +568,7 @@ ggplot() +
   theme_void() +
   theme(
     text = element_text(color = "white"),
-    plot.caption = element_text(color = "#ad5fad", hjust = 0.95),
+    plot.caption = element_text(color = "#ad5fad", size = 5, hjust = 0.95),
     plot.background = element_rect(fill = "#573b88", color = NA),
     plot.margin = margin(
       t = 10,
@@ -581,7 +581,9 @@ ggplot() +
  
 ## Interactive maps using `{leaflet}`
 
-```{r echo=TRUE, width = 40, height = 20}
+```{r echo=TRUE}
+#| fig-height: 3
+
 # Example taken from the leaflet package website
 library(leaflet)
 
