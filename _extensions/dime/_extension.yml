@@ -1,0 +1,20 @@
+title: DIME Presentation Template
+author: Bernhard Bieri
+version: 0.0.1
+quarto-required: ">=1.2.231"
+contributes:
+  formats: 
+    revealjs:
+      footer: |
+        "[DIME theme](https://github.com/worldbank) for
+        [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html).
+        Code available on [GitHub](https://github.com/BBieri/quartoWBTheme)."
+      theme: dime.scss
+      slide-number: c/t
+      highlight-style: atom-one
+      show-slide-number: all
+      title-slide-attributes:
+        data-background-color: "#FFFFFF"
+      preview-links: true
+      include-in-header: favicon.html
+# For more design details go to: https://thedocs.worldbank.org/en/doc/723361567518322252-0060022019/original/WBGBrandingandVisualIdentityGuidelinesFebruary2016.pdf
