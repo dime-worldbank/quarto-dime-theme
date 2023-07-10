@@ -1,6 +1,6 @@
-# QuartoWBTheme <img src="QuartoWBTheme.png" align="right" height="200" />
+# quartoDIMEtheme <img src="logos/QuartoDIMETheme.png" align="right" height="200" />
 
-A World Bank theme for Quarto Reveal.js Presentations. **Why Quarto?** Because
+A DIME theme for Quarto Reveal.js Presentations. **Why Quarto?** Because
 it is a cross-language publishing platform that will allow you to create
 beautiful HTML presentations with your R or Python code on short notice!
 This theme's goal is to allow researchers at the Bank to focus on the content
@@ -16,16 +16,22 @@ To use this presentation theme, create a project folder, open a console in that
 folder, and run the following command:
 
 ```
-quarto use template BBieri/quartoWBtheme
+quarto use template BBieri/quartoDIMEtheme
 ```
 
 This will copy all required stylesheets and templates to your project folder
 of the latest version of the template. You can then remove files that you don't
 need and edit the `.qmd` presentation to fit your needs.
 
+Note that there are two templates in this collection. You can toggle between
+the two by editing the `yaml` header in the `template.qmd` file. Replace
+the `dime-revealjs:` by `worldbank-revealjs:` in the `format` key. Alternatively
+use and edit the `alt/template_WB.qmd` template directly by copying it to the
+root directory of your project.
+
 ## Building the presentation:
 
-To build the presentation, simply run `quarto render template.qmd` from the
+To build the presentation, simply run `quarto render template_DIME.qmd` from the
 same console or open up the `template.qmd` file and hit `CTRL/CMD + K` or the
 corresponding shortcut depending on your OS and text editor. This will generate
 an `html` file you will be able to present and share with your audience. Check
@@ -65,6 +71,16 @@ logos
 └── WB-WBG-horizontal-white.png
 ```
 
+All logos are subject to copyright and are the exclusive property of DIME
+and the World Bank Group.
+
+## PRs and Issues:
+
+Encountered a bug? Want to suggest a feature? Consider describing your issue
+[here](https://github.com/BBieri/quartoDIMEtheme/issues). If you already have a
+solution in mind then know that
+[PRs are welcome](https://github.com/BBieri/quartoDIMEtheme/pulls).
+
 ## Acknowledgements and Disclaimers:
 
 The following creators greatly inspired this theme:
@@ -83,4 +99,4 @@ found [here](https://pixabay.com/photos/train-railway-snow-winter-railroad-62849
 and the mountain picture [here](https://pixabay.com/photos/switzerland-sunrise-mountain-clouds-4290226/).
 
 *Disclaimer: The views expressed on this project/website are my own. They do
-not represent the views of the World Bank and its affiliated organizations.*
+not represent the views of the World Bank Group.*
