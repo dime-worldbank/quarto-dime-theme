@@ -6,9 +6,10 @@ beautiful HTML presentations with your R or Python code on short notice!
 This theme's goal is to allow researchers at the Bank to focus on the content
 rather than the form of their presentations by providing a range of sensible
 defaults, from the implementation of the official color palette to the inclusion
-of a World Bank `{ggplot}` theme.
+of a World Bank `{ggplot}` theme. This theme is primarily thought for R users
+with the included but `{ggplot}` theme but can also be used with other languages.
 
-See a demo [here](https://bbieri.github.io/quartoWBtheme/).
+See a demo [here](https://bbieri.github.io/quartoDIMEtheme/).
 
 ## Using this theme:
 
