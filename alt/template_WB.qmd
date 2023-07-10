@@ -1,15 +1,15 @@
 ---
-title: "Quarto DIME Theme"
-subtitle: "A minimalist theme for Quarto/Reveal.js presentations for DIME"
+title: "Quarto World Bank Theme"
+subtitle: "A minimalist theme for Quarto/Reveal.js presentations for the World Bank"
 author: "[Bernhard Bieri](https://bernhardbieri.ch)"
-institute: Development Impact Evaluation (DIME)
+institute: The World Bank
 date: today
-date-format: "dddd, [the] D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM, YYYY"
+date-format: "dddd, [the] [<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM, YYYY"
 bibliography: bib/template.bib
 format:
-  dime-revealjs:
+  worldbank-revealjs:
     # Output file
-    output-file: index.html
+    output-file: index_WB.html
     # Table of Contents
     toc: true
     toc_float: true
@@ -20,16 +20,16 @@ format:
     self-contained: true
     self-contained-math: true
     # Logo and footer options
-    logo: "logos/DIME_COLOR.png"
-    footer: "[DIME](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/BBieri/quartodimetheme)."
+    logo: "logos/WB-WBG-horizontal-RGB.png"
+    footer: "[World Bank](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/BBieri/quartoWBtheme)."
 ---
 
-```{r Setup}
+```{r}
 #| include: false
 # Add default ggplot theme. This can be overridden by your own theme at
 # the end of the ggplot graph.
-source("_extensions/dime/setup_dime_palettes.R")
-source("_extensions/dime/setup_ggplot2_dime.R")
+source("_extensions/worldbank/setup_wb_palettes.R")
+source("_extensions/worldbank/setup_ggplot2_worldbank.R")
 # Install the reticulate package to render Python code.
 # install.packages("reticulate")
 # use_python("C:/Python311/python.exe")
@@ -67,7 +67,7 @@ Affiliation
 
 ::::
 
-## Introducing the DIME's Quarto theme
+## Introducing the World Bank's Quarto theme
 
 This presentation template accelerates the creation of
 [Reveal.js](https://revealjs.com/) presentations by taking care of the
@@ -105,7 +105,7 @@ When you click the **Render** button a document will be generated that includes:
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code.
 You can embed code like this:
 
-```{r mini_code_test}
+```{r}
 #| echo: true
 1 + 1
 ```
@@ -118,7 +118,7 @@ You can also add `text marked as code`!
 
 You can even render content written in Python directly thanks to the `{reticulate}` R-package and a Python installation.
 
-```{python first_python}
+```{python}
 #| label: fig-polar
 #| fig-cap: "A line plot on a polar axis"
 #| code-fold: true
@@ -204,14 +204,14 @@ Use `. . .` to separate content as an incremental slide!
 
 ## You can add R code to plot data...
 
-```{r first_plot}
+```{r}
 #| echo: true
 library(dplyr)
 library(ggplot2)
 g <- starwars |> 
   ggplot() +
   geom_point(aes(x = height, y = mass)) +
-  theme_dime()
+  theme_wb()
 ```
 
 ## You can add R code to plot data...and focus on (a) specific line(s):
@@ -236,7 +236,7 @@ g <- starwars |>
   labs(title = "Star Wars Example",
        caption = "Star Wars Example Dataset",
        col = "Sex") +
-  theme_dime()
+  theme_wb()
 ```
 
 > See the [Quarto Documentation for more details.](https://quarto.org/docs/presentations/revealjs/#code-blocks)
@@ -249,10 +249,10 @@ g <- starwars |>
 g
 ```
 
-## A DIME color palette
+## A World Bank color palette
 
-The theme also contains a DIME/World Bank color palette and a color generator to make
-graphs more uniform and easier to generate. `dime_palette()` yields a named vector
+The theme also contains a World Bank color palette and a color generator to make
+graphs more uniform and easier to generate. `wb_palette()` yields a named vector
 with the HEX codes of the corresponding colors for an easy integration in
 `{ggplot2}` graphs.
 
@@ -261,10 +261,10 @@ with the HEX codes of the corresponding colors for an easy integration in
 #| echo: true
 #| fig-height: 1.5
 # The default discrete DIME color palette
-dime_palette(name = "DIME", 5, type = "discrete")
+wb_palette(name = "DIME", 5, type = "discrete")
 
 # A continuous palette based on the DIME palette
-dime_palette(name = "DIME", 21, type = "continuous")
+wb_palette(name = "DIME", 21, type = "continuous")
 ```
 
 ## A few more penguin examples {.scrollable}
@@ -293,7 +293,7 @@ penguins |>
        x = "Bill Length (mm)",
        y = "Bill Depth (mm)",
        col = "Species") +
-  theme_dime()
+  theme_wb()
 ```
 :::
 
@@ -319,7 +319,7 @@ penguins |>
        x = "Bill Length (mm)",
        y = "Bill Depth (mm)",
        col = "Species") +
-  theme_dime()
+  theme_wb()
 ```
 :::
 
