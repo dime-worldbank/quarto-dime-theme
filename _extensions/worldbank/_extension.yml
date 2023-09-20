@@ -8,7 +8,7 @@ contributes:
       footer: |
         "[World Bank](https://github.com/worldbank) theme for
         [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html).
-        Code available on [GitHub](https://github.com/BBieri/quartoWBTheme)."
+        Code available on [GitHub](https://github.com/dime-worldbank/quartoWBTheme)."
       theme: worldbank.scss
       slide-number: c/t
       highlight-style: atom-one

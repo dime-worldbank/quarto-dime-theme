@@ -21,15 +21,15 @@ format:
     self-contained-math: true
     # Logo and footer options
     logo: "logos/DIME_COLOR.png"
-    footer: "[DIME](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/BBieri/quartodimetheme)."
+    footer: "[DIME](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/dime-worldbank/quartodimetheme)."
 ---
 
 ```{r Setup}
 #| include: false
 # Add default ggplot theme. This can be overridden by your own theme at
 # the end of the ggplot graph.
-source("_extensions/BBieri/dime/setup_dime_palettes.R")
-source("_extensions/BBieri/dime/setup_ggplot2_dime.R")
+source("_extensions/dime-worldbank/dime/setup_dime_palettes.R")
+source("_extensions/dime-worldbank/dime/setup_ggplot2_dime.R")
 # Install the reticulate package to render Python code.
 # install.packages("reticulate")
 # use_python("C:/Python311/python.exe")

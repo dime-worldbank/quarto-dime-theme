@@ -9,7 +9,7 @@ defaults, from the implementation of the official color palette to the inclusion
 of a World Bank `{ggplot}` theme. This theme is primarily thought for R users
 with the included but `{ggplot}` theme but can also be used with other languages.
 
-See a demo [here](https://bbieri.github.io/quartoDIMEtheme/).
+See a demo [here](https://dime-worldbank.github.io/quartoDIMEtheme/).
 
 ## Using this theme:
 
@@ -17,7 +17,7 @@ To use this presentation theme, create a project folder, open a console in that
 folder, and run the following command:
 
 ```
-quarto use template BBieri/quartoDIMEtheme
+quarto use template dime-worldbank/quartoDIMEtheme
 ```
 
 This will copy all required stylesheets and templates to your project folder
@@ -36,7 +36,7 @@ To build the presentation, simply run `quarto render template_DIME.qmd` from the
 same console or open up the `template.qmd` file and hit `CTRL/CMD + K` or the
 corresponding shortcut depending on your OS and text editor. This will generate
 an `html` file you will be able to present and share with your audience. Check
-out the [demo](https://bbieri.github.io/quartoWBtheme/) for additional ways
+out the [demo](https://dime-worldbank.github.io/quartoWBtheme/) for additional ways
 of sharing your presentation such as PDFs.
 
 ## Useful Resources
@@ -48,7 +48,7 @@ started with Quarto.
 - [The Advanced Quarto/Reveal Documentation](https://quarto.org/docs/presentations/revealjs/advanced.html)
 - [A Quarto Tip a Day](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/)
 
-Feel free to [open an issue](https://github.com/BBieri/quartoWBtheme/issues) if
+Feel free to [open an issue](https://github.com/dime-worldbank/quartoWBtheme/issues) if
 you encounter a bug or want to suggest an improvement of the template. PRs are
 welcome too.
 
@@ -78,9 +78,9 @@ and the World Bank Group.
 ## PRs and Issues:
 
 Encountered a bug? Want to suggest a feature? Consider describing your issue
-[here](https://github.com/BBieri/quartoDIMEtheme/issues). If you already have a
+[here](https://github.com/dime-worldbank/quartoDIMEtheme/issues). If you already have a
 solution in mind then know that
-[PRs are welcome](https://github.com/BBieri/quartoDIMEtheme/pulls).
+[PRs are welcome](https://github.com/dime-worldbank/quartoDIMEtheme/pulls).
 
 ## Acknowledgements and Disclaimers:
 
