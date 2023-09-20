@@ -3,10 +3,10 @@ author: Bernhard Bieri
 version: 0.0.1
 quarto-required: ">=1.2.231"
 contributes:
-  formats: 
+  formats:
     revealjs:
       footer: |
-        "[DIME theme](https://github.com/worldbank) for
+        "[DIME theme](https://github.com/dime-worldbanks) for
         [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html).
         Code available on [GitHub](https://github.com/dime-worldbank/quartoWBTheme)."
       theme: dime.scss
