@@ -17,7 +17,7 @@ To use this presentation theme, create a project folder, open a console in that
 folder, and run the following command:
 
 ```
-quarto use template dime-worldbank/quartoDIMEtheme
+quarto use template dime-worldbank/quarto-dime-theme
 ```
 
 This will copy all required stylesheets and templates to your project folder
