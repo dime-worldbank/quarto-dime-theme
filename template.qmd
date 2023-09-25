@@ -21,7 +21,7 @@ format:
     self-contained-math: true
     # Logo and footer options
     logo: "logos/DIME_COLOR.png"
-    footer: "[DIME](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/dime-worldbank/quarto-dime-theme)."
+    footer: "[DIME](https://www.worldbank.org/dime) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/dime-worldbank/quarto-dime-theme)."
 ---
 
 ```{r Setup}
