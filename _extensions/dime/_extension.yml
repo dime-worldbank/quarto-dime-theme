@@ -8,7 +8,7 @@ contributes:
       footer: |
         "[DIME theme](https://github.com/dime-worldbank) for
         [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html).
-        Code available on [GitHub](https://github.com/dime-worldbank/quartoWBTheme)."
+        Code available on [GitHub](https://github.com/dime-worldbank/quarto-dime-theme)."
       theme: dime.scss
       slide-number: c/t
       highlight-style: atom-one

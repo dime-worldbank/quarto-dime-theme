@@ -21,7 +21,7 @@ format:
     self-contained-math: true
     # Logo and footer options
     logo: "logos/WB-WBG-horizontal-RGB.png"
-    footer: "[World Bank](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/dime-worldbank/quartoWBtheme)."
+    footer: "[World Bank](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/dime-worldbank/quarto-dime-theme)."
 ---
 
 ```{r}
@@ -34,7 +34,7 @@ source("_extensions/worldbank/setup_ggplot2_wb.R")
 # install.packages("reticulate")
 # use_python("C:/Python311/python.exe")
 # Link your conda environment
-reticulate::use_condaenv("quartoWBtheme")
+reticulate::use_condaenv("quarto-dime-theme")
 ```
 
 ## Authors
