@@ -21,7 +21,7 @@ format:
     self-contained-math: true
     # Logo and footer options
     logo: "logos/WB-WBG-horizontal-RGB.png"
-    footer: "[World Bank](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/BBieri/quartoWBtheme)."
+    footer: "[World Bank](https://github.com/worldbank) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/dime-worldbank/quartoWBtheme)."
 ---
 
 ```{r}
@@ -29,7 +29,7 @@ format:
 # Add default ggplot theme. This can be overridden by your own theme at
 # the end of the ggplot graph.
 source("_extensions/worldbank/setup_wb_palettes.R")
-source("_extensions/worldbank/setup_ggplot2_worldbank.R")
+source("_extensions/worldbank/setup_ggplot2_wb.R")
 # Install the reticulate package to render Python code.
 # install.packages("reticulate")
 # use_python("C:/Python311/python.exe")
