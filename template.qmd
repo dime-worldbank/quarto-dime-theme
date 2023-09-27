@@ -19,6 +19,8 @@ format:
     # Generate a self contained file
     self-contained: true
     self-contained-math: true
+    # Turn preview links within the presentation off (all links open in a new tab)
+    preview-links: false
     # Logo and footer options
     logo: "logos/DIME_COLOR.png"
     footer: "[DIME](https://www.worldbank.org/dime) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/dime-worldbank/quarto-dime-theme)."
