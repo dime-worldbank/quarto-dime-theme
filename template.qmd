@@ -37,13 +37,6 @@ source("_extensions/dime/setup_ggplot2_dime.R")
 # Worldbank:
 # source("_extensions/dime/setup_dime_palettes.R")
 # source("_extensions/dime/setup_ggplot2_dime.R")
-
-
-# Install the reticulate package to render Python code.
-# install.packages("reticulate")
-# use_python("C:/Python311/python.exe")
-# Link your conda environment
-reticulate::use_condaenv("quarto-dime-theme")
 ```
 
 ## Authors
@@ -122,34 +115,6 @@ You can embed code like this:
 > This is part of the [Quarto documentation](https://quarto.org/docs/presentations/).
 
 You can also add `text marked as code`!
-
-## Integrated Python within an R Quarto Presentation with `{reticulate}` {auto-animate="true" .scrollable}
-
-You can even render content written in Python directly thanks to the `{reticulate}` R-package and a Python installation.
-
-```{python first_python}
-#| label: fig-polar
-#| fig-cap: "A line plot on a polar axis"
-#| code-fold: true
-#| echo: true
-
-# Do not forget to create an environment with numpy and pyplot installed and
-# import it with reticulate at the start of the .qmd file.
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(
-  subplot_kw = {'projection': 'polar'}
-)
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
-```
-
 
 ## Equations
 
