@@ -32,8 +32,8 @@ format:
 # the end of the ggplot graph.
 
 # DIME:
-source("_extensions/dime-worldbank/setup_dime_palettes.R")
-source("_extensions/dime-worldbank/setup_ggplot2_dime.R")
+source("_extensions/dime-worldbank/dime/setup_dime_palettes.R")
+source("_extensions/dime-worldbank/dime/setup_ggplot2_dime.R")
 # Worldbank:
 # source("_extensions/dime/setup_dime_palettes.R")
 # source("_extensions/dime/setup_ggplot2_dime.R")
