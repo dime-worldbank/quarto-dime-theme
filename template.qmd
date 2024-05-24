@@ -46,6 +46,14 @@ source("_extensions/dime-worldbank/dime/setup_ggplot2_dime.R")
 # Worldbank:
 # source("_extensions/dime/setup_dime_palettes.R")
 # source("_extensions/dime/setup_ggplot2_dime.R")
+
+# Install R libraries
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(
+  dplyr, DT, ggplot2, ggpubr, ggrepel, ggtext, gt, here, huxtable, 
+  knitr, leaflet, osmdata, pacman, pagedown, palmerpenguins,
+  reactable, sf, tidyr, tidyverse
+)
 ```
 
 ## Authors
@@ -189,8 +197,6 @@ Use `. . .` to separate content as an incremental slide!
 
 ```{r first_plot}
 #| echo: true
-library(dplyr)
-library(ggplot2)
 g <- starwars |>
   ggplot() +
   geom_point(aes(x = height, y = mass)) +
@@ -202,9 +208,6 @@ g <- starwars |>
 ```{r}
 #| echo: true
 #| code-line-numbers: "4-6"
-library(dplyr)
-library(ggplot2)
-
 starwars <- starwars |>
   dplyr::mutate(name = ifelse(name %in% c("Jabba Desilijic Tiure", "Tarfful"),
                               name, ""))
@@ -457,10 +460,6 @@ reactable::reactable(tab)
 ## Map using `ggplot2::ggplot()` and `{osmdata}`
 
 ```{r}
-library(sf)
-library(osmdata)
-library(tidyverse)
-
 # Get DC borders
 dcosmborders <- getbb("washington dc", format_out = "sf_polygon")
 dcosmborders <- dcosmborders[1,] # Only main polygon
@@ -568,8 +567,6 @@ ggplot() +
 #| fig-height: 3
 
 # Example taken from the leaflet package website
-library(leaflet)
-
 m <- leaflet(width = "100%") |>
   addTiles() |>  # Add default OpenStreetMap map tiles
   addMarkers(lng = 174.768,
