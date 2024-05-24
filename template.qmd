@@ -6,6 +6,9 @@ institute: Development Impact Evaluation (DIME)
 date: today
 date-format: "dddd, [the] D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM, YYYY"
 bibliography: bib/template.bib
+knitr:
+  opts_chunk: 
+    collapse: true
 format:
   dime-revealjs:
     # Output file
@@ -20,20 +23,26 @@ format:
     self-contained: true
     self-contained-math: true
     # Turn preview links within the presentation off (all links open in a new tab)
-    preview-links: false
-    # Logo and footer options
-    logo: "logos/DIME_COLOR.png"
+    preview-links: true
+    # You can change the header logo in the top-left here 
+    logo: "logos/WORLD_BANK/WB-WBG-horizontal-RGB.png"
+    # You can change the footer logo in the bottom-right here
+    header-logo: "logos/DIME/Dime-0_logo-bb-tlb_RGB-Color.png"
     footer: "[DIME](https://www.worldbank.org/dime) theme for [Quarto Presentations](https://quarto.org/docs/presentations/revealjs/index.html). Code available on [GitHub](https://github.com/dime-worldbank/quarto-dime-theme)."
+filters:
+  - "_extensions/dime-worldbank/dime/reveal-header.lua"
+include-in-header:
+- text: |
+    <link rel = "shortcut icon" href = "_extensions/dime-worldbank/dime/logo.png" />
 ---
-
 ```{r Setup}
 #| include: false
 # Add default ggplot theme. This can be overridden by your own theme at
 # the end of the ggplot graph.
 
 # DIME:
-source("_extensions/dime/setup_dime_palettes.R")
-source("_extensions/dime/setup_ggplot2_dime.R")
+source("_extensions/dime-worldbank/dime/setup_dime_palettes.R")
+source("_extensions/dime-worldbank/dime/setup_ggplot2_dime.R")
 # Worldbank:
 # source("_extensions/dime/setup_dime_palettes.R")
 # source("_extensions/dime/setup_ggplot2_dime.R")
